@@ -1,9 +1,14 @@
 p {
 	display: inline-block;
 	padding-left: 1vw;
+
 }
 
 button {
 	padding: 10px;
 	margin: 10px;
+}
+
+div {
+	border: 3px solid pink;
 }

@@ -4,7 +4,7 @@
 		<title>Literary Mutilator</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet"  href="style.css" />
-		<!--<script src="script.js"></script>-->
+		<script type="text/javascript" src="script.js"></script>
 	</head>
 	<body>
 		<span><button id="b-01">Make Text Green</button></span>
@@ -22,49 +22,35 @@
 			I love jelly beans lollipop. Lollipop pastry I love biscuit tart marshmallow jujubes toffee cake.</p>
 		<br />
 		<br />
-
-		<p id="p3">I love bonbon tiramisu muffin tiramisu macaroon I love ice cream carrot cake. Danish halvah chocolate
+		<p><em><<< DRAG THIS TEXT AROUND >>></em></p>
+		<p id="p3" draggable="true" ondragstart="dragstart_handler(event)">I love bonbon tiramisu muffin tiramisu macaroon I love ice cream carrot cake. Danish halvah chocolate
 			cake macaroon soufflé cupcake. Gummi bears candy croissant I love brownie. Topping oat cake fruitcake biscuit.
 			Soufflé I love bear claw. Halvah soufflé caramels chocolate cake. Tootsie roll candy donut. Sesame snaps icing
 			tart icing I love chocolate cake. </p>
+		<div id="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">DROP ZONE</div>
 		<br />
 		<br />
+
 		<script>
-
-			//B 01
-			//select the button
-			const highlightButton = document.getElementById("b-01");
-			//make a function that changes something
-			const addHighlight = function() {
-				document.getElementById("p1").style.cssText = "color: lime;";
-			};
-			//add an event listener to the button and give it the function
-			highlightButton.addEventListener("click", addHighlight);
-
-			//B 02
-			//select the button
-			const uppercaseButton = document.getElementById("b-02");
-			//make a function that changes something
-			const makeCaps = function() {
-				document.getElementById("p1").style.cssText = "text-transform: uppercase;";
-			};
-			//add an event listener to the button and give it the function
-			uppercaseButton.addEventListener("click", makeCaps);
-
-			const badWordsButton = document.getElementById("b-03");
-			function changeWords() {
-				const paragraph = document.getElementById("p2").innerHTML;
-				const newParagraph = paragraph.replace(/I love/gi, "BUTT CRACKS");
-				document.getElementById("p2").innerHTML = newParagraph;
+			<!--Draggable Text-->
+			function dragstart_handler(ev) {
+			//add target element's id to the data transfer object
+				ev.dataTransfer.setData("text/plain", ev.target.id);
+				ev.dropEffect = "move";
 			}
-			badWordsButton.addEventListener("click", changeWords);
 
-			const makePinkButton = document.getElementById("b-04");
-			function makeItPink() {
-				document.getElementById("p2").setAttribute("style", "background-color: pink;");
+			function dragover_handler(ev) {
+				ev.preventDefault();
+				//set the dropeffect to move
+				ev.dataTransfer.dropEffect = "move";
 			}
-			makePinkButton.addEventListener("click", makeItPink);
 
+			function drop_handler(ev) {
+				ev.preventDefault();
+				//get the id of the target and add the moved element to the target's DOM
+				var data = ev.dataTransfer.getData("text/plain");
+				ev.target.appendChild(document.getElementById(data));
+			}
 		</script>
 
 	</body>
