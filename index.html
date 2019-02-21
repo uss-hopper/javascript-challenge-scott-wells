@@ -4,28 +4,52 @@
 		<title>Literary Mutilator</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet"  href="style.css" />
-		<script src="script.js"></script>
+		<!--<script src="script.js"></script>-->
 	</head>
 	<body>
-		<span><button id="b1">change color</button></span>
+		<span><button id="b-01">Highlighter</button></span>
+		<span><button id="b-02">Uppercase</button></span>
 		<p id="p1">Lemon drops gummi bears tiramisu fruitcake. Icing icing
 			carrot cake gingerbread I love lollipop chocolate. Jujubes soufflé ice cream sweet roll marzipan sesame snaps. Halvah
 			chocolate sesame snaps I love. Apple pie gingerbread cotton candy icing. Lemon drops candy I love sugar plum I love
 			halvah lemon drops cake pastry.</p>
 		<br />
 		<br />
-		<span><button id="b2">change color</button></span>
+		<span><button>change color</button></span>
 		<p id="p2">Jujubes brownie jujubes chocolate. Tootsie roll topping lemon drops toffee chocolate danish I love. I love
 			I love danish tart. Tart tootsie roll pie lollipop bonbon cheesecake. Halvah wafer jelly. Pudding jujubes topping
 			I love jelly beans lollipop. Lollipop pastry I love biscuit tart marshmallow jujubes toffee cake.</p>
 		<br />
 		<br />
-		<span><button id="b3">change color</button></span>
+		<span><button>change color</button></span>
 		<p id="p3">I love bonbon tiramisu muffin tiramisu macaroon I love ice cream carrot cake. Danish halvah chocolate
 			cake macaroon soufflé cupcake. Gummi bears candy croissant I love brownie. Topping oat cake fruitcake biscuit.
 			Soufflé I love bear claw. Halvah soufflé caramels chocolate cake. Tootsie roll candy donut. Sesame snaps icing
 			tart icing I love chocolate cake. </p>
 		<br />
 		<br />
+		<script>
+
+			//B 01
+			//select the button
+			const highlightButton = document.getElementById("b-01");
+			//make a function that changes something
+			const addHighlight = function() {
+				document.getElementById("p1").style.cssText = "background-color: yellow";
+			};
+			//add an event listener to the button and give it the function
+			highlightButton.addEventListener("click", addHighlight);
+
+			//B 02
+			//select the button
+			const uppercaseButton = document.getElementById("b-02");
+			//make a function that changes something
+			const makeCaps = function() {
+				document.getElementById("p1").style.cssText = "text-transform: uppercase;";
+			};
+			//add an event listener to the button and give it the function
+			uppercaseButton.addEventListener("click", makeCaps);
+		</script>
+
 	</body>
 </html>
