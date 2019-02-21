@@ -7,7 +7,7 @@
 		<!--<script src="script.js"></script>-->
 	</head>
 	<body>
-		<span><button id="b-01">Highlighter</button></span>
+		<span><button id="b-01">Make Text Green</button></span>
 		<span><button id="b-02">Uppercase</button></span>
 		<p id="p1">Lemon drops gummi bears tiramisu fruitcake. Icing icing
 			carrot cake gingerbread I love lollipop chocolate. Jujubes soufflé ice cream sweet roll marzipan sesame snaps. Halvah
@@ -16,7 +16,7 @@
 		<br />
 		<br />
 		<span><button id="b-03">Switch Words</button></span>
-		<span><button id="b-04">Make Them Pink</button></span>
+		<span><button id="b-04">Highlighter</button></span>
 		<p id="p2">Jujubes brownie jujubes chocolate. Tootsie roll topping lemon drops toffee chocolate danish I love. I love
 			I love danish tart. Tart tootsie roll pie lollipop bonbon cheesecake. Halvah wafer jelly. Pudding jujubes topping
 			I love jelly beans lollipop. Lollipop pastry I love biscuit tart marshmallow jujubes toffee cake.</p>
@@ -36,7 +36,7 @@
 			const highlightButton = document.getElementById("b-01");
 			//make a function that changes something
 			const addHighlight = function() {
-				document.getElementById("p1").style.cssText = "background-color: yellow";
+				document.getElementById("p1").style.cssText = "color: lime;";
 			};
 			//add an event listener to the button and give it the function
 			highlightButton.addEventListener("click", addHighlight);
@@ -61,12 +61,7 @@
 
 			const makePinkButton = document.getElementById("b-04");
 			function makeItPink() {
-				const paragraph = document.getElementById("p2").innerHTML;
-				const array = paragraph.toLowerCase().split(" ");
-				let newArray = array.filter(index => index.includes("butt"));
-				document.getElementById("p2").innerHTML = newArray.join(" ");
-				console.log(newArray);
-				newArray.style.cssText = "background-color: pink;";
+				document.getElementById("p2").setAttribute("style", "background-color: pink;");
 			}
 			makePinkButton.addEventListener("click", makeItPink);
 
