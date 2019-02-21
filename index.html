@@ -15,13 +15,14 @@
 			halvah lemon drops cake pastry.</p>
 		<br />
 		<br />
-		<span><button>change color</button></span>
+		<span><button id="b-03">Switch Words</button></span>
+		<span><button id="b-04">Make Them Pink</button></span>
 		<p id="p2">Jujubes brownie jujubes chocolate. Tootsie roll topping lemon drops toffee chocolate danish I love. I love
 			I love danish tart. Tart tootsie roll pie lollipop bonbon cheesecake. Halvah wafer jelly. Pudding jujubes topping
 			I love jelly beans lollipop. Lollipop pastry I love biscuit tart marshmallow jujubes toffee cake.</p>
 		<br />
 		<br />
-		<span><button>change color</button></span>
+
 		<p id="p3">I love bonbon tiramisu muffin tiramisu macaroon I love ice cream carrot cake. Danish halvah chocolate
 			cake macaroon soufflé cupcake. Gummi bears candy croissant I love brownie. Topping oat cake fruitcake biscuit.
 			Soufflé I love bear claw. Halvah soufflé caramels chocolate cake. Tootsie roll candy donut. Sesame snaps icing
@@ -49,6 +50,26 @@
 			};
 			//add an event listener to the button and give it the function
 			uppercaseButton.addEventListener("click", makeCaps);
+
+			const badWordsButton = document.getElementById("b-03");
+			function changeWords() {
+				const paragraph = document.getElementById("p2").innerHTML;
+				const newParagraph = paragraph.replace(/I love/gi, "BUTT CRACKS");
+				document.getElementById("p2").innerHTML = newParagraph;
+			}
+			badWordsButton.addEventListener("click", changeWords);
+
+			const makePinkButton = document.getElementById("b-04");
+			function makeItPink() {
+				const paragraph = document.getElementById("p2").innerHTML;
+				const array = paragraph.toLowerCase().split(" ");
+				let newArray = array.filter(index => index.includes("butt"));
+				document.getElementById("p2").innerHTML = newArray.join(" ");
+				console.log(newArray);
+				newArray.style.cssText = "background-color: pink;";
+			}
+			makePinkButton.addEventListener("click", makeItPink);
+
 		</script>
 
 	</body>
